@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "browserslist": "^4.7.2",
-    "npm": "^6.13.0"
+    "npm": "^6.13.4"
   },
   "browserslist": [
     "last 1 version",
