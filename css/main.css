@@ -3417,7 +3417,21 @@ input[type='submit'] {
         margin-bottom: 24px; }
       .block.fullwidth {
         margin-top: -1px;
-        padding: 48px 24px; } }
+        padding: 48px 24px; }
+      .middle-layout .block {
+        height: 100vh;
+        padding: 24px;
+        height: calc(var(--vh, 1vh) * 100); }
+        .middle-layout .block.v-align:after {
+          display: inline-block; } }
+
+.note {
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  color: #333;
+  padding-top: 12px; }
 
 .locations {
   overflow: hidden;
@@ -3600,6 +3614,49 @@ input[type='submit'] {
     opacity: 0.5;
     pointer-events: none;
     filter: grayscale(100%); }
+  .splash-layout .card {
+    float: none;
+    width: 100%;
+    max-width: 416px;
+    margin: 0 auto;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #999; }
+    .splash-layout .card .image {
+      width: 252px;
+      margin: 0 auto 27px; }
+      .splash-layout .card .image .bg {
+        top: 36px;
+        left: 36px;
+        right: 36px;
+        bottom: 36px; }
+      .splash-layout .card .image span {
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 5px solid black;
+        background-color: white;
+        padding: 12px; }
+        .splash-layout .card .image span svg {
+          display: block;
+          width: 36px;
+          height: 36px;
+          fill: black; }
+    .splash-layout .card h1, .splash-layout .card .h1 {
+      margin: 0 0 15px;
+      color: white;
+      font-size: 24px;
+      line-height: 24px; }
+    .splash-layout .card p {
+      margin-bottom: 30px; }
+    .splash-layout .card .button {
+      min-width: 96px; }
   @media (max-width: 767px) {
     .card {
       float: none;

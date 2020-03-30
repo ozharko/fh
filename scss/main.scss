@@ -272,7 +272,22 @@ $percent: $full / 100;
 		 margin-top: -1px;
 		 padding: 48px 24px;
 	 }
+	 .middle-layout & {
+		height: 100vh;
+		padding: 24px;
+		 height: calc(var(--vh, 1vh) * 100);
+		 &.v-align:after {display: inline-block;}
+	 }
   }
+}
+
+.note {
+	text-align: center;
+	font-size: 16px;
+	line-height: 24px;
+	margin: 0;
+	color: $black;
+	padding-top: 12px;
 }
 
 .locations {
@@ -481,6 +496,53 @@ $percent: $full / 100;
 			pointer-events: none;
 			filter: grayscale(100%);
 		}
+	}
+	.splash-layout & {
+		float: none;
+		width: 100%;
+		max-width: 416px;
+		margin: 0 auto;
+		padding: 0;
+		color: white;
+		text-align: center;
+		font-size: 16px;
+		line-height: 24px;
+		color: $gray;
+		.image {
+			width: 252px;
+			margin: 0 auto 27px;
+			.bg {
+				top: 36px;
+				left: 36px;
+				right: 36px;
+				bottom: 36px;
+			}
+			span {
+				position: absolute;
+				top: -24px;
+				right: -24px;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				border: 5px solid black;
+				background-color: white;
+				padding: 12px;
+				svg {
+					display: block;
+					width: 36px;
+					height: 36px;
+					fill: black;
+				}
+			}
+		}
+		h1, .h1 {
+			margin: 0 0 15px;
+			color: white;
+			font-size: 24px;
+			line-height: 24px;
+		}
+		p {margin-bottom: 30px;}
+		.button {min-width: 96px;}
 	}
 	@include media('<tablet') {
 		float: none;
