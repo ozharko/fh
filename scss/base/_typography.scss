@@ -1,0 +1,74 @@
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+  display: block;
+  font-family: $headings-font-family;
+  font-weight: bold;
+  margin: 0 0 0.5em;
+  color: $headings-color;
+}
+
+h1, .h1 {
+  font-size: $h1-font-size;
+  line-height: 84px;
+  margin: 0 0 29px;
+}
+
+h2, .h2 {
+  font-size: $h2-font-size;
+  line-height: 36px;
+  margin-bottom: 40px;
+  & + p {margin-top: -16px;}
+  @include media('<tablet') {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 24px;
+    & + p {margin-top: -12px;}
+  }
+}
+
+h3, .h3 {
+  font-size: $h3-font-size;
+  line-height: 24px;
+  font-weight: normal;
+  padding-bottom: 3px;
+  border-bottom: 2px solid white;
+  margin: 0 0 19px;
+}
+
+h4, .h4 {
+  font-size: $h4-font-size;
+  margin: 0;
+  line-height: 24px;
+}
+
+h5, .h5 {
+  font-size: $h5-font-size;
+}
+
+h6, .h6 {
+  font-size: $h6-font-size;
+}
+
+p {
+  margin: 0 0 24px;
+  .small-margin & {margin-bottom: 12px;}
+  a:hover {color: $yellow;}
+  & + h3, & + .h3 {padding-top: 36px;}
+}
+
+a {
+  color: $base-link-color;
+  transition: color $animation-speed ease;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
