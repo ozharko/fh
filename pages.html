@@ -23,16 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link media="all" rel="stylesheet" href="css/main.css">
 
-    <script>
-        (function(w, d, u) {
-            var s = d.createElement('script');
-            s.async = true;
-            s.src = u + '?' + (Date.now() / 60000 | 0);
-            var h = d.getElementsByTagName('script')[0];
-            h.parentNode.insertBefore(s, h);
-        })(window, document, 'https://cdn.bitrix24.ua/b5250339/crm/site_button/loader_1_oaisdy.js');
-    </script>
-
     <script type="text/javascript" src="js/svg-sprites.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -52,54 +42,39 @@
     <div id="wrapper">
         <header id="header">
             <strong class="logo"><a data-slogan="СЕТЬ ФИТНЕС КЛУБОВ" href="#">FIT HAUS</a></strong>
-            <div class="column">
-                <a href="contacts" class="location scroll-link"><svg xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#icon-location"></use>
-                    </svg>Все клубы</a>
-                <a data-popup data-type="ajax" href="popups/login.html" class="button yellow"><span>Вход</span></a>
-            </div>
         </header>
         <main id="main">
-            <div class="block flex">
+            <div class="block v-align">
                 <div class="middle">
-                    <ul class="locations">
-                        <li>
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg">
-                                    <use xlink:href="#icon-location"></use>
-                                </svg>
-                                <h4>Днепр</h4>
-                                <p>Ул. Баррикадная 16</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg">
-                                    <use xlink:href="#icon-location"></use>
-                                </svg>
-                                <h4>Днепр</h4>
-                                <p>Набережная 25-б</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg">
-                                    <use xlink:href="#icon-location"></use>
-                                </svg>
-                                <h4>Запорожье</h4>
-                                <p>Ул. Лермонтова 9-а</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg">
-                                    <use xlink:href="#icon-location"></use>
-                                </svg>
-                                <h4>Запорожье</h4>
-                                <p>Никопольское шоссе 3-б</p>
-                            </a>
-                        </li>
-                    </ul>
+						 <style>
+							 .pages {
+								 margin: 0;
+								 padding: 0;
+								 list-style: none;
+								 font-size: 20px;
+								 line-height: 48px;
+								 font-weight: 500;
+							 }
+							 .pages li {
+								 position: relative;
+								 padding-left: 36px;
+							 }
+							 .pages svg {
+								 position: absolute;
+								 top: 12px;
+								 left: 0;
+								 width: 24px;
+								 height: 24px;
+								 fill: #ffe800;
+							 }
+							 .pages a:hover {color: #ffe800;}
+						 </style>
+						 <ul class="pages">
+							 <li><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-check"></use></svg><a target="_blank" href="splash.html">Splash Page</a></li>
+							 <li><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-check"></use></svg><a target="_blank" href="index.html">Home Page</a></li>
+							 <li><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-check"></use></svg><a target="_blank" href="index.v2.html">Season Ticket</a></li>
+							 <li><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-check"></use></svg><a target="_blank" href="thanks.html">Thanks Page</a></li>
+						 </ul>
                 </div>
                 <div class="bottom">
                     <ul class="social mobile-hidden">

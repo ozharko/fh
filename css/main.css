@@ -3345,6 +3345,12 @@ input[type='submit'] {
     background-color: #ffe800; }
     .block.yellow p {
       color: rgba(0, 0, 0, 0.6); }
+  .block.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center; }
   .block.no-padding {
     padding: 0; }
   .block.white {
@@ -3418,12 +3424,14 @@ input[type='submit'] {
       .block.fullwidth {
         margin-top: -1px;
         padding: 48px 24px; }
+      .block.flex {
+        display: block; }
       .middle-layout .block {
         height: 100vh;
         padding: 24px;
         height: calc(var(--vh, 1vh) * 100); }
-        .middle-layout .block.v-align:after {
-          display: inline-block; } }
+        .middle-layout .block.flex {
+          display: flex; } }
 
 .note {
   text-align: center;
@@ -3432,6 +3440,9 @@ input[type='submit'] {
   margin: 0;
   color: #333;
   padding-top: 12px; }
+  @media (max-width: 767px) {
+    .note br {
+      display: none; } }
 
 .locations {
   overflow: hidden;
@@ -3614,6 +3625,10 @@ input[type='submit'] {
     opacity: 0.5;
     pointer-events: none;
     filter: grayscale(100%); }
+  .card.center {
+    float: none;
+    display: block;
+    margin: 0 auto; }
   .splash-layout .card {
     float: none;
     width: 100%;

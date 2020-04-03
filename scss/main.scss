@@ -200,6 +200,13 @@ $percent: $full / 100;
     background-color: $yellow;
     p {color: black(.6);}
   }
+  &.flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  }
   &.no-padding {padding: 0;}
   &.white {background-color: white;}
   &.center {text-align: center;}
@@ -272,11 +279,12 @@ $percent: $full / 100;
 		 margin-top: -1px;
 		 padding: 48px 24px;
 	 }
+	 &.flex {display: block;}
 	 .middle-layout & {
 		height: 100vh;
 		padding: 24px;
-		 height: calc(var(--vh, 1vh) * 100);
-		 &.v-align:after {display: inline-block;}
+		height: calc(var(--vh, 1vh) * 100);
+		&.flex {display: flex;}
 	 }
   }
 }
@@ -288,6 +296,9 @@ $percent: $full / 100;
 	margin: 0;
 	color: $black;
 	padding-top: 12px;
+	@include media('<tablet') {
+		br {display: none;}
+	}
 }
 
 .locations {
@@ -496,6 +507,11 @@ $percent: $full / 100;
 			pointer-events: none;
 			filter: grayscale(100%);
 		}
+	}
+	&.center {
+		float: none;
+		display: block;
+		margin: 0 auto;
 	}
 	.splash-layout & {
 		float: none;
