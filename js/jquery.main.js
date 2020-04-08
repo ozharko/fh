@@ -156,7 +156,9 @@ function initInput() {
         if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
             e.preventDefault();
         }
-    });
+	 });
+	 
+	 $('input[type="tel"]').mask('+38 (000) 000-00-00');
 }
 
 var $popupButton;
