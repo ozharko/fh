@@ -212,8 +212,13 @@ function initValidation() {
         else _options = options;
         validateForm($this, {
             submitHandler: function(form) {
-                $(form).ajaxSubmit(_options);
-                return false;
+					if (!$(form).is('[data-default]')) {
+						$(form).ajaxSubmit(_options);
+                	return false;
+					} else {
+						initData(form);
+						form.submit();
+					}
             }
         });
     });
@@ -239,4 +244,10 @@ function validateForm($form, options = {}) {
             $(element).closest(".input").removeClass(errorClass).addClass(validClass);
         }
     }, options));
+}
+
+function initData(form) {
+	var data = $(form).serializeArray(),
+		description = data[8].value;
+	$('[name="description"]').val(description + ', ' + data[0].value + ' ' + data[1].value + ', ' + data[2].value + ', ' + data[3].value);
 }

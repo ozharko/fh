@@ -1,22 +1,27 @@
-<form action="#" method="post" class="modal-content">
+<form action="https://www.liqpay.ua/api/3/checkout" method="post" data-default class="modal-content" target="_blank">
 	<h3>Персональная информация</h3>
 	<div class="input">
-		<input name="first_name" type="text" required>
+		<input name="name" type="text" required>
 		<label class="input-label">Имя</label>
 	</div>
 	<div class="input">
-		<input name="last_name" type="text" required>
+		<input name="surname" type="text" required>
 		<label class="input-label">Фамилия</label>
 	</div>
 	<div class="input">
-		<input name="tel" type="tel" required>
+		<input name="phone" type="tel" required>
 		<label class="input-label">Телефон</label>
 	</div>
 	<div class="input">
-		<input data-rule-email="true" name="login_email" type="email" required>
+		<input data-rule-email="true" name="email" type="email" required>
 		<label class="input-label">Email</label>
 	</div>
 	<footer>
 		<button type="submit" class="button"><span>Далее</span></button>
 	</footer>
+	<input type="hidden" name="_token" value="OpgW4ozRSxLc6z2vXL63zQLFJVjVAOZQl8SQJ48i">
+	<input type="hidden" name="data" value="eyJwdWJsaWNfa2V5IjoiaTE2NDUwNDg0NjA5IiwidmVyc2lvbiI6IjMiLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiI0NTAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6IkZpdCBTdGFydC4gXHUwNDIzXHUwNDNiLiBcdTA0MWJcdTA0MzVcdTA0NDBcdTA0M2NcdTA0M2VcdTA0M2RcdTA0NDJcdTA0M2VcdTA0MzJcdTA0MzAgOS1cdTA0MzAuIFx1MDQyNlx1MDQzNVx1MDQzZFx1MDQzMCA0NTAwIFx1MDQzM1x1MDQ0MFx1MDQzZC4gSUQgXHUwNDNmXHUwNDNlXHUwNDNhXHUwNDQzXHUwNDNmXHUwNDNhXHUwNDM4IFRRWDdFQkpIUlMiLCJvcmRlcl9pZCI6IlRRWDdFQkpIUlMiLCJyZXN1bHRfdXJsIjoiaHR0cDpcL1wvcmVhY3Rvci5maXRoYXVzLmNvbS51YVwvdGhhbmtzIiwic2VydmVyX3VybCI6Imh0dHA6XC9cL3JlYWN0b3IuZml0aGF1cy5jb20udWFcL2FjdGl2YXRlX29yZGVyIiwic2FuZGJveCI6IjEifQ==">
+	<input type="hidden" name="signature" value="kYiuNHsV5BM/OIAN3K3Th8WpDXE=">
+	<input type="hidden" name="language" value="ru">
+	<input type="hidden" name="description" value="Fit Start. Ул. Лермонтова 9-а. Цена 4500 грн. ID покупки TQX7EBJHRS">
 </form>
