@@ -218,8 +218,6 @@ function initValidation() {
 					} else {
 						initData(form);
 						setTimeout(function() {
-							$(form).serialize();
-							console.log($(form).serialize());
 							form.submit();
 						}, 100);
 						$.fancybox.close();
@@ -254,5 +252,5 @@ function validateForm($form, options = {}) {
 function initData(form) {
 	var data = $(form).serializeArray(),
 		description = data[8].value;
-	$('[name="description"]').val(description + ', ' + data[0].value + ' ' + data[1].value + ', ' + data[2].value + ', ' + data[3].value);
+	$('[name="description"]').val(description + ', ' + data[0].value + ' ' + data[1].value + ', ' + data[2].value + ', ' + data[3].value).trigger( "change" );
 }
