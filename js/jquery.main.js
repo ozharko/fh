@@ -217,7 +217,10 @@ function initValidation() {
                 	return false;
 					} else {
 						initData(form);
-						form.submit();
+						setTimeout(function(){
+							form.submit();
+						}, 100);
+						$.fancybox.close();
 					}
             }
         });
