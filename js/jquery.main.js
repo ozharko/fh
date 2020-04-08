@@ -217,7 +217,9 @@ function initValidation() {
                 	return false;
 					} else {
 						initData(form);
-						setTimeout(function(){
+						setTimeout(function() {
+							$(form).serialize();
+							console.log($(form).serialize());
 							form.submit();
 						}, 100);
 						$.fancybox.close();
