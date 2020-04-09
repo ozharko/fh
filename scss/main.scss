@@ -51,6 +51,15 @@ $percent: $full / 100;
   min-height: 100%;
   overflow: hidden;
   position: relative;
+  & > .b24-widget-button-position-bottom-right {
+	  display: block !important;
+	  position: fixed;
+	  right: calc(#{$percent} * 4 - 8px) !important;
+	  bottom: calc(#{$percent} * 8) !important;
+  }
+  @include media('<tablet') {
+	  & > .b24-widget-button-position-bottom-right {display: none !important;}
+	}
 }
 
 .bg {
@@ -160,9 +169,7 @@ $percent: $full / 100;
   right: calc(#{$percent} * 4) !important;
   bottom: calc(#{$percent} * 4) !important;
   @include media('≥tablet') {
-	.splash-layout & {
-		bottom: calc(#{$percent} * 8) !important;
-	  }
+	.splash-layout & {display: none !important;}
   }
 }
 

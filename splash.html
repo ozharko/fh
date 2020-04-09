@@ -23,6 +23,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link media="all" rel="stylesheet" href="css/main.css">
 
+    <script>
+        (function(w, d, u) {
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = u + '?' + (Date.now() / 60000 | 0);
+            var h = d.getElementsByTagName('script')[0];
+            h.parentNode.insertBefore(s, h);
+        })(window, document, 'https://cdn.bitrix24.ua/b5250339/crm/site_button/loader_1_oaisdy.js');
+    </script>
+
     <script type="text/javascript" src="js/svg-sprites.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -39,7 +49,7 @@
 
 <body class="splash-layout">
     <div id="svg-icon-placeholder" style="display: none;"></div>
-    <div id="player" class="player" data-property="{videoURL:'http://youtu.be/L9wWEFM4GN4', quality:'hd720', useOnMobile:false, stopMovieOnBlur:false, showControls:false, containment:'body', autoPlay:true, mute:true, startAt:0, opacity:.5, loop:true}">My video</div>
+    <div id="player" class="player" data-property="{videoURL:'http://youtu.be/L9wWEFM4GN4', quality:'hd720', useOnMobile:true, stopMovieOnBlur:false, showControls:false, containment:'body', autoPlay:true, mute:true, startAt:0, opacity:.5, loop:true}">My video</div>
     <div id="wrapper">
         <header id="header">
             <strong class="logo"><a data-slogan="СЕТЬ ФИТНЕС КЛУБОВ" href="#">FIT HAUS</a></strong>
@@ -110,6 +120,21 @@
                 </div>
             </div>
         </main>
+        <div class="24-widget-button-wrapper b24-widget-button-position-bottom-right b24-widget-button-visible">
+            <div data-b24-crm-hello-cont="" class="b24-widget-button-popup b24-widget-button-popup-show" style="border-color: #ffe600;">
+                <span data-b24-hello-btn-hide="" class="b24-widget-button-popup-btn-hide"></span>
+                <div class="b24-widget-button-popup-inner">
+                    <div class="b24-widget-button-popup-image">
+                        <span data-b24-hello-icon="" class="b24-widget-button-popup-image-item" style="background-image: url(&quot;https://fithaus.bitrix24.ua/bitrix/components/bitrix/crm.button.edit/templates/.default/images/upload-man-mini-1.png&quot;);"></span>
+                    </div>
+                    <div class="b24-widget-button-popup-content">
+                        <div data-b24-hello-name="" class="b24-widget-button-popup-name">Александр</div>
+                        <div data-b24-hello-text="" class="b24-widget-button-popup-description">Выберите клуб</div>
+                    </div>
+                </div>
+                <div class="b24-widget-button-popup-triangle" style="border-color: #ffe600;"></div>
+            </div>
+        </div>
     </div>
 </body>
 

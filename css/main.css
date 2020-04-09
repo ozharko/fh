@@ -2414,6 +2414,14 @@ input[type='submit'] {
   min-height: 100%;
   overflow: hidden;
   position: relative; }
+  #wrapper > .b24-widget-button-position-bottom-right {
+    display: block !important;
+    position: fixed;
+    right: calc(calc(100vw - var(--scroll-bar))/100 * 4 - 8px) !important;
+    bottom: calc(calc(100vw - var(--scroll-bar))/100 * 8) !important; }
+  @media (max-width: 767px) {
+    #wrapper > .b24-widget-button-position-bottom-right {
+      display: none !important; } }
 
 .bg {
   pointer-events: none; }
@@ -2509,7 +2517,7 @@ input[type='submit'] {
   bottom: calc(calc(100vw - var(--scroll-bar))/100 * 4) !important; }
   @media (min-width: 768px) {
     .splash-layout .b24-widget-button-position-bottom-right {
-      bottom: calc(calc(100vw - var(--scroll-bar))/100 * 8) !important; } }
+      display: none !important; } }
 
 .block {
   float: left;
