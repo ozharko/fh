@@ -40,7 +40,16 @@ jQuery(document).ready(function($) {
     initBgImage();
 
     var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-    if (mac) $('body').addClass('macOS');
+	 if (mac) $('body').addClass('macOS');
+
+	 myPlayer = jQuery('#player').YTPlayer( {
+		onReady: function( player ) {
+			var filters = {
+				grayscale: 100
+			}
+			myPlayer.YTPApplyFilters(filters);
+		}
+	});
 });
 
 window.addEventListener('load', function() {
@@ -157,8 +166,6 @@ function initInput() {
             e.preventDefault();
         }
 	 });
-	 
-	 $('input[type="tel"]').mask('+38 (000) 000-00-00');
 }
 
 var $popupButton;
@@ -216,10 +223,7 @@ function initValidation() {
 						$(form).ajaxSubmit(_options);
                 	return false;
 					} else {
-						initData(form);
-						setTimeout(function() {
-							form.submit();
-						}, 100);
+						form.submit();
 						$.fancybox.close();
 					}
             }
@@ -247,10 +251,4 @@ function validateForm($form, options = {}) {
             $(element).closest(".input").removeClass(errorClass).addClass(validClass);
         }
     }, options));
-}
-
-function initData(form) {
-	var data = $(form).serializeArray(),
-		description = data[8].value;
-	$('[name="description"]').val(description + ', ' + data[0].value + ' ' + data[1].value + ', ' + data[2].value + ', ' + data[3].value).trigger( "change" );
 }

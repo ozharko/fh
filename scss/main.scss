@@ -35,9 +35,9 @@ $percent: $full / 100;
 @import 'base/variables';
 @import 'base/functions';
 
-@import 'plugins/mCustomScrollbar';
 @import 'plugins/select/core';
 @import 'plugins/fancybox';
+@import 'plugins/player';
 @import 'plugins/slick';
 
 @import 'base/mixins';
@@ -318,7 +318,7 @@ $percent: $full / 100;
 			left: 0;
 			bottom: 0;
 			width: 1px;
-			background-color:$black;
+			background-color: white(.15);
 		}
 		&:first-child {
 			&:before {display: none;}

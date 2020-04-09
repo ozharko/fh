@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html>
-<!-- build:section layout.head -->
-<!-- /build -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon/site.webmanifest">
+	<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#ffe800">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="theme-color" content="#ffffff">
+
+	<meta property="og:url" content="https://fithaus.com.ua" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="FIT HAUS" />
+	<meta property="og:description" content="СЕТЬ ФИТНЕС КЛУБОВ" />
+	<meta property="og:image" content="images/content/fb.jpg" />
+
+	<title>FIT HAUS</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link media="all" rel="stylesheet" href="css/main.css">
+
+	<script type="text/javascript" src="js/svg-sprites.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function(){
+			document.getElementById('svg-icon-placeholder').innerHTML += SVG_SPRITES['sprite'];
+		}, false);
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
+	<script type="text/javascript" src="js/jquery.plugins.js" defer></script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
 <body class="splash-layout">
 	<div id="svg-icon-placeholder" style="display: none;"></div>
+	<div id="player" class="player" data-property="{videoURL:'http://youtu.be/L9wWEFM4GN4', quality:'hd720', useOnMobile:false, stopMovieOnBlur:false, showControls:false, containment:'body', autoPlay:true, mute:true, startAt:0, opacity:.5, loop:true}">My video</div>
 	<div id="wrapper">
 		<!-- build:section layout.header -->
 		<!-- /build -->
