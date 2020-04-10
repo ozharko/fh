@@ -27,7 +27,8 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 var options = {
     success: function(data) {
-        $('.tab.display .input').addClass('error');
+		  $('.tab.display .input').addClass('error');
+		  $.fancybox.close();
     }
 }
 
