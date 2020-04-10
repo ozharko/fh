@@ -1100,9 +1100,14 @@ $percent: $full / 100;
   }
 }
 
+.fancybox-slide--html {padding: 0;}
+
 .fancybox-bg {
   background: black(.6);
   .fancybox-is-open & {opacity: 1;}
+  @include media('<tablet') {
+	  background: white;
+  }
 }
 
 .modal-content {
@@ -1152,6 +1157,15 @@ $percent: $full / 100;
     line-height: 24px;
     color: $gray;
     margin-bottom: 11px;
+  }
+  @include media('<tablet') {
+	  width: 100%;
+	  padding: 24px;
+	  .fancybox-close-small {
+		  position: fixed;
+		  top: 24px;
+		  right: 24px;
+	  }
   }
 }
 

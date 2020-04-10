@@ -3390,10 +3390,16 @@ input[type='submit'] {
       .addres li:nth-child(n):last-child {
         padding-bottom: 0; } }
 
+.fancybox-slide--html {
+  padding: 0; }
+
 .fancybox-bg {
   background: rgba(0, 0, 0, 0.6); }
   .fancybox-is-open .fancybox-bg {
     opacity: 1; }
+  @media (max-width: 767px) {
+    .fancybox-bg {
+      background: white; } }
 
 .modal-content {
   width: calc(calc(100vw - var(--scroll-bar))/100 * 37.5);
@@ -3439,6 +3445,14 @@ input[type='submit'] {
     line-height: 24px;
     color: #999;
     margin-bottom: 11px; }
+  @media (max-width: 767px) {
+    .modal-content {
+      width: 100%;
+      padding: 24px; }
+      .modal-content .fancybox-close-small {
+        position: fixed;
+        top: 24px;
+        right: 24px; } }
 
 .tab {
   position: absolute;
