@@ -5,11 +5,9 @@ function handleWindow() {
     console.log(body.clientWidth);
 
     if (window.innerWidth > body.clientWidth + 5) {
-        console.log(1);
         body.classList.add('has-scrollbar');
         body.setAttribute('style', '--scroll-bar: ' + (window.innerWidth - body.clientWidth) + 'px');
     } else {
-        console.log(2);
         body.classList.remove('has-scrollbar');
         body.setAttribute('style', '--scroll-bar: 0px');
     }
@@ -28,9 +26,24 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 var options = {
     success: function(data) {
 		  $('.tab.display .input').addClass('error');
-		  $.fancybox.close();
+		  
     }
-}
+},
+mail = {
+	beforeSubmit: function (formData, $form) {
+		$(".submit", $form).prop("disabled", true).addClass("loading");
+	},
+	success: function (response, statusText, xhr, $form) {
+		$.fancybox.close();
+		var card = $popupButton.closest('.card');
+		if (card) {
+			$('form[data-liqpay]', card).submit();
+		}
+	},
+	complete: function (jqXhr, error, $form) {
+		$(".submit", $form).prop("disabled", false).removeClass("loading");
+	}
+};
 
 jQuery(document).ready(function($) {
     initTabs();
