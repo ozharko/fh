@@ -197,13 +197,7 @@ function initPopup() {
             afterLoad: function() {
                 initInput();
                 initValidation();
-				},
-				afterClose: function() {
-					var card = $this.closest('.card');
-					if (card) {
-						$('form[data-liqpay]', card).submit();
-					}
-			  }
+				}
         });
     });
 }
