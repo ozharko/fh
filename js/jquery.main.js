@@ -31,7 +31,7 @@ var options = {
 },
 mail = {
 	beforeSubmit: function (formData, $form) {
-		$(".submit", $form).prop("disabled", true).addClass("loading");
+		$(".button", $form).prop("disabled", true).addClass("loading");
 	},
 	success: function (response, statusText, xhr, $form) {
 		$.fancybox.close();
@@ -41,7 +41,7 @@ mail = {
 		}
 	},
 	complete: function (jqXhr, error, $form) {
-		$(".submit", $form).prop("disabled", false).removeClass("loading");
+		$(".button", $form).prop("disabled", false).removeClass("loading");
 	}
 };
 
