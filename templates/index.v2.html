@@ -145,20 +145,29 @@
 								<li>Раздевалка <span><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-check"></use></svg></span></li>
 								<li class="disabled">Групповые занятия <em>*</em> <span><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-line"></use></svg></span></li>
 							</ul>
-							<form data-option="mail" id="buy_1" style="display: none;" action="https://www.liqpay.ua/api/3/checkout" method="post" data-default class="modal-content" target="_blank">
+							<div id="buy_1" style="display: none;" class="modal-content">
 								<h3>Персональная информация</h3>
-								<div class="input">
-									<input name="name" type="text" required>
-									<label class="input-label">Имя и Фамилия</label>
-								</div>
-								<div class="input">
-									<input name="phone" type="tel" required>
-									<label class="input-label">Номер телефона</label>
-								</div>
+								<form data-option="mail" action="_inc/test.php" method="post" accept-charset="utf-8">
+									<div class="input">
+										<input name="name" type="text" required>
+										<label class="input-label">Имя и Фамилия</label>
+									</div>
+									<div class="input">
+										<input minlength="10" name="phone" type="tel" required>
+										<label class="input-label">Номер телефона</label>
+									</div>
+								</form>
 								<footer>
-									<button type="submit" class="button"><span>Далее</span><svg class="spinner" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-spinner"></use></svg></button>
+									<form class="ignore" data-default method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8" target="_blank">
+										<input type="hidden" name="_token" value="jGnPjThDCfwF0mgiJsFkpwgumIvNvPSYzYSeqWJR">
+										<input type="hidden" name="data" value="eyJwdWJsaWNfa2V5IjoiaTE2NDUwNDg0NjA5IiwidmVyc2lvbiI6IjMiLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiI0NTAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6IkZpdCBTdGFydC4gXHUwNDIzXHUwNDNiLiBcdTA0MWJcdTA0MzVcdTA0NDBcdTA0M2NcdTA0M2VcdTA0M2RcdTA0NDJcdTA0M2VcdTA0MzJcdTA0MzAgOS1cdTA0MzAuIFx1MDQyNlx1MDQzNVx1MDQzZFx1MDQzMCA0NTAwIFx1MDQzM1x1MDQ0MFx1MDQzZC4gSUQgXHUwNDNmXHUwNDNlXHUwNDNhXHUwNDQzXHUwNDNmXHUwNDNhXHUwNDM4IEM2U1dQTElMUEQiLCJvcmRlcl9pZCI6IkM2U1dQTElMUEQiLCJyZXN1bHRfdXJsIjoiaHR0cDpcL1wvcmVhY3Rvci5maXRoYXVzLmNvbS51YVwvdGhhbmtzIiwic2VydmVyX3VybCI6Imh0dHA6XC9cL3JlYWN0b3IuZml0aGF1cy5jb20udWFcL2FjdGl2YXRlX29yZGVyIn0=">
+										<input type="hidden" name="signature" value="vNdeKWKpoX7zHIlihvXrj8p8Ml0=">
+										<input type="hidden" name="language" value="ru">
+										<input type="hidden" name="description" value="Fit Start. Ул. Лермонтова 9-а. Цена 4500 грн. ID покупки C6SWPLILPD">
+										<button type="submit" disabled class="button"><span>Далее</span><svg class="spinner" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-spinner"></use></svg></button>
+									  </form>
 								</footer>
-							</form>
+							</div>
 							<a data-popup data-type="inline" href="#buy_1" class="button"><span>Купить абонемент</span></a>
 						</div>
 						<div class="card">

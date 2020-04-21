@@ -27,18 +27,17 @@ var options = {
     }
 },
 mail = {
+	clearForm: true,
+	resetForm: true,
 	beforeSubmit: function (formData, $form) {
-		var card = $popupButton.closest('.card');
-		if (card) {
-			$('form[data-liqpay]', card).submit();
-		}
-		$(".button", $form).prop("disabled", true).addClass("loading");
+		$(".modal-content .button").prop("disabled", true).addClass("loading");
 	},
 	success: function (response, statusText, xhr, $form) {
 		$.fancybox.close();
+		initInput();
 	},
 	complete: function (jqXhr, error, $form) {
-		$(".button", $form).prop("disabled", false).removeClass("loading");
+		$(".modal-content .button").prop("disabled", false).removeClass("loading");
 	}
 };
 
@@ -48,7 +47,8 @@ jQuery(document).ready(function($) {
     initInput();
     initScroll();
     initGallery();
-    initBgImage();
+	 initBgImage();
+	 initSendForm();
 
     var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
 	 if (mac) $('body').addClass('macOS');
@@ -75,6 +75,14 @@ window.addEventListener('load', function() {
         $('.b24-widget-button-callback .b24-widget-button-social-tooltip').trigger('click');
     });
 });
+
+function initSendForm() {
+	$(document).on('click', '.modal-content button', function() {
+		setTimeout(function(){
+			$('.modal-content form[data-option]').submit();
+		},100);
+	});
+}
 
 function initTabs() {
 	$(document).on('click', '.tabs a, .extern-tab', function(event) {
@@ -193,7 +201,8 @@ function initPopup() {
         showPopup(src, type, {
             afterLoad: function() {
                 initInput();
-                initValidation();
+					 initValidation();
+					 $(".modal-content .button").prop("disabled", true);
 				}
         });
     });
@@ -247,7 +256,7 @@ function validateForm($form, options = {}) {
         ignore: ".ignore, [type=\"hidden\"]",
         onclick: false,
         onkeyup: function(element) {
-            if ($(element).is('[data-onkeyup]')) $(element).valid();
+			$(element).valid();
         },
         focusInvalid: true,
         errorClass: "error",
@@ -256,10 +265,25 @@ function validateForm($form, options = {}) {
         debug: true,
         errorElement: "span",
         highlight: function(element, errorClass, validClass) {
-            $(element).closest(".input").addClass(errorClass).removeClass(validClass);
+				$(element).closest(".input").addClass(errorClass).removeClass(validClass);
+				initCheckValue();
         },
         unhighlight: function(element, errorClass, validClass) {
-            $(element).closest(".input").removeClass(errorClass).addClass(validClass);
+				$(element).closest(".input").removeClass(errorClass).addClass(validClass);
+				initCheckValue();
         }
     }, options));
+}
+
+function initCheckValue() {
+	var successFlag = false;
+	$('.modal-content form[data-option] .input').each(function (index, element) {
+		if ($(this).hasClass('success')) successFlag = true;
+		else {
+			successFlag = false;
+			return false;
+		}
+	});
+
+	successFlag ? $(".modal-content .button").prop("disabled", false) : $(".modal-content .button").prop("disabled", true);
 }
