@@ -1,9 +1,6 @@
 function handleWindow() {
     var body = document.querySelector('body');
 
-    console.log(window.innerWidth);
-    console.log(body.clientWidth);
-
     if (window.innerWidth > body.clientWidth + 5) {
         body.classList.add('has-scrollbar');
         body.setAttribute('style', '--scroll-bar: ' + (window.innerWidth - body.clientWidth) + 'px');
@@ -31,14 +28,14 @@ var options = {
 },
 mail = {
 	beforeSubmit: function (formData, $form) {
-		$(".button", $form).prop("disabled", true).addClass("loading");
-	},
-	success: function (response, statusText, xhr, $form) {
-		$.fancybox.close();
 		var card = $popupButton.closest('.card');
 		if (card) {
 			$('form[data-liqpay]', card).submit();
 		}
+		$(".button", $form).prop("disabled", true).addClass("loading");
+	},
+	success: function (response, statusText, xhr, $form) {
+		$.fancybox.close();
 	},
 	complete: function (jqXhr, error, $form) {
 		$(".button", $form).prop("disabled", false).removeClass("loading");
