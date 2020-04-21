@@ -30,14 +30,14 @@ mail = {
 	clearForm: true,
 	resetForm: true,
 	beforeSubmit: function (formData, $form) {
-		$(".modal-content .button").prop("disabled", true).addClass("loading");
+		$(".modal .button").prop("disabled", true).addClass("loading");
 	},
 	success: function (response, statusText, xhr, $form) {
 		$.fancybox.close();
 		initInput();
 	},
 	complete: function (jqXhr, error, $form) {
-		$(".modal-content .button").prop("disabled", false).removeClass("loading");
+		$(".modal .button").prop("disabled", false).removeClass("loading");
 	}
 };
 
@@ -77,9 +77,9 @@ window.addEventListener('load', function() {
 });
 
 function initSendForm() {
-	$(document).on('click', '.modal-content button', function() {
+	$(document).on('click', '.modal button', function() {
 		setTimeout(function(){
-			$('.modal-content form[data-option]').submit();
+			$('.modal form[data-option]').submit();
 		},100);
 	});
 }
@@ -202,7 +202,7 @@ function initPopup() {
             afterLoad: function() {
                 initInput();
 					 initValidation();
-					 $(".modal-content .button").prop("disabled", true);
+					 $(".modal .button").prop("disabled", true);
 				}
         });
     });
@@ -277,7 +277,7 @@ function validateForm($form, options = {}) {
 
 function initCheckValue() {
 	var successFlag = false;
-	$('.modal-content form[data-option] .input').each(function (index, element) {
+	$('.modal form[data-option] .input').each(function (index, element) {
 		if ($(this).hasClass('success')) successFlag = true;
 		else {
 			successFlag = false;
@@ -285,5 +285,5 @@ function initCheckValue() {
 		}
 	});
 
-	successFlag ? $(".modal-content .button").prop("disabled", false) : $(".modal-content .button").prop("disabled", true);
+	successFlag ? $(".modal .button").prop("disabled", false) : $(".modal .button").prop("disabled", true);
 }
