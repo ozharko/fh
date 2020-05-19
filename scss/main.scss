@@ -237,8 +237,16 @@ $percent: $full / 100;
     padding: 48px 24px;
     text-align: center !important;
     background-size: cover;
-    background-image: none !important;
-    video {display: none;}
+	 video {display: none;}
+	 &.mobile-bg {
+		 padding: 0;
+		 &:before {
+			 content: '';
+			 display: block;
+			 padding-top: 100%;
+		 }
+	 }
+	 &:not(.mobile-bg) {background-image: none !important;}
     h2, .h2 {
       font-size: 20px;
       line-height: 30px;
