@@ -133,7 +133,7 @@ $percent: $full / 100;
     background-color: $yellow;
     svg {fill: black;}
   }
-  .splash-layout & {display: none;}
+  .splash-layout &, .doc-layout & {display: none;}
 }
 
 .logo {
@@ -148,7 +148,7 @@ $percent: $full / 100;
     display: block;
     height: 100%;
   }
-  .splash-layout & {
+  .splash-layout &, .doc-layout & {
 	background-image: url(../images/logo_mobile.svg);
   }
   @include media('<tablet') {
@@ -170,6 +170,7 @@ $percent: $full / 100;
   bottom: calc(#{$percent} * 4) !important;
   @include media('≥tablet') {
 	.splash-layout & {display: none !important;}
+	.doc-layout & {bottom: calc(#{$percent} * 8) !important;}
   }
 }
 
@@ -228,6 +229,14 @@ $percent: $full / 100;
 		width: 100%;
 		height: 100vh;
 		.middle {width: 100%;}
+	}
+	.doc-layout & {
+		height: auto;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 	}
   }
   @include media('<tablet') {
@@ -1209,36 +1218,98 @@ $percent: $full / 100;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.doc {
+	margin: 0 calc(#{$percent} * 4 * -1);
+	padding: calc(#{$percent} * 6) 0 ;
+	@extend %clearfix;
+	.item {
+		width: 25%;
+		float: left;
+		color: white;
+		line-height: 24px;
+		position: relative;
+		transition-property: color, background-color;
+		padding: calc(#{$percent} * 4);
+		&:nth-child(-n+4):after {display: none;}
+		&:nth-child(4n+1):before {display: none;}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 1px;
+			background-color: white(.1);
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 1px;
+			background-color: white(.1);
+		}
+		@include media('≥tablet') {
+			&:hover {
+				color: black;
+				background-color: $yellow;
+				span {color: black;}
+				svg {fill: black;}
+			}
+		}
+		@include media('>1680px') {
+			width: 20%;
+			&:nth-child(n) {
+				&:after, &:before {display: block;}
+			}
+			&:nth-child(-n+5):after {display: none;}
+			&:nth-child(5n+1):before {display: none;}
+		}
+		@include media('<1200px') {
+			width: calc(100% / 3);
+			&:nth-child(n) {
+				&:after, &:before {display: block;}
+			}
+			&:nth-child(-n+3):after {display: none;}
+			&:nth-child(3n+1):before {display: none;}
+		}
+	}
+	svg {
+		display: block;
+		width: 48px;
+		height: 48px;
+		fill: $yellow;
+		margin: 0 0 9px -7px;
+	}
+	strong {
+		display: block;
+		font-size: 16px;
+		font-weight: 600;
+		max-height: 96px;
+		overflow: hidden;
+		margin-bottom: 2px;
+	}
+	span {
+		display: block;
+		color: white(.5);
+		font-size: 12px;
+		transition: color $animation-speed ease;
+	}
+	@include media('<tablet') {
+		padding: 0 0 24px;
+		margin: 0 -24px;
+		.item {
+			width: 100%;
+			padding: 36px 24px;
+			text-align: left;
+			&:nth-child(n) {
+				&:after {display: block;}
+			}
+			&:first-child {
+				&:after {display: none;}
+				padding-top: 0;
+			}
+		}
+	}
+}

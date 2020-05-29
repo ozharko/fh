@@ -42,6 +42,7 @@ mail = {
 };
 
 jQuery(document).ready(function($) {
+	initDot();
     initTabs();
     initPopup();
     initInput();
@@ -62,6 +63,12 @@ jQuery(document).ready(function($) {
 		}
 	});
 });
+
+function initDot() {	
+	$('.doc strong').matchHeight();
+
+	$('.doc strong').dotdotdot();
+}
 
 window.addEventListener('load', function() {
     var bLazy = new Blazy({
