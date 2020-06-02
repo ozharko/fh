@@ -50,6 +50,7 @@ jQuery(document).ready(function($) {
     initGallery();
 	 initBgImage();
 	 initSendForm();
+	 initNavigation();
 
     var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
 	 if (mac) $('body').addClass('macOS');
@@ -63,6 +64,21 @@ jQuery(document).ready(function($) {
 		}
 	});
 });
+
+function initNavigation() {
+	$('.menu-icon').click(function(event) {
+		event.preventDefault();
+		$('body').toggleClass('navigation');
+		!$('body').hasClass('display') ? bodyScrollLock.clearAllBodyScrollLocks() : bodyScrollLock.disableBodyScroll($('#nav'));
+	});
+
+	$(document).on('click', function(event) {
+		if ($(event.target).closest('.menu-icon').length || $(event.target).closest('#nav').length) return;
+		$('body').removeClass('navigation')
+		if (!$('body').hasClass('display')) bodyScrollLock.clearAllBodyScrollLocks();
+		event.stopPropagation();
+	});
+}
 
 function initDot() {	
 	$('.doc strong').matchHeight();

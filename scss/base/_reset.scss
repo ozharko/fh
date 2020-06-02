@@ -25,11 +25,16 @@ body {
     overflow: hidden;
     &:not(.macOS) {margin-right: var(--scroll-bar);}
   }
+  &.navigation {
+	  overflow: hidden;
+	  margin-right: var(--scroll-bar);
+	}
   @include media('<desktop') {
     .mobile & {font-family: $mac;}
   }
   @include media('<tablet') {
-    min-width: 320px;
+	 min-width: 320px;
+	 margin: 0 !important;
   }
 }
 
