@@ -63,20 +63,136 @@ jQuery(document).ready(function($) {
 			myPlayer.YTPApplyFilters(filters);
 		}
 	});
+
+	initMap();
 });
+
+function initMap() {
+	if(!$('#map').length || $(window).width() < 768) return;
+	// Styles a map in night mode.
+	var pos = $('#map').data('pos').split(',');
+
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: {
+			lat: parseFloat(pos[0]),
+			lng: parseFloat(pos[1])
+		},
+		scrollwheel: false,
+		disableDefaultUI: true,
+		zoom: 16,
+		styles: [
+			{
+				 "featureType": "administrative",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+					  {
+							"color": "#444444"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "landscape",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"color": "#f2f2f2"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "poi",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"visibility": "off"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "road",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"saturation": -100
+					  },
+					  {
+							"lightness": 45
+					  }
+				 ]
+			},
+			{
+				 "featureType": "road.highway",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"visibility": "simplified"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "road.arterial",
+				 "elementType": "labels.icon",
+				 "stylers": [
+					  {
+							"visibility": "off"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "transit",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"visibility": "off"
+					  }
+				 ]
+			},
+			{
+				 "featureType": "water",
+				 "elementType": "all",
+				 "stylers": [
+					  {
+							"color": "#fdeb06"
+					  },
+					  {
+							"visibility": "on"
+					  }
+				 ]
+			}
+	  ]
+	});
+
+	var image = {
+		url: 'images/map.svg',
+		size: new google.maps.Size(48, 48),
+		origin: new google.maps.Point(0, 0),
+		anchor: new google.maps.Point(-72, 36),
+		scaledSize: new google.maps.Size(48, 48)
+	}
+	var beachMarker = new google.maps.Marker({
+		position: {
+			lat: parseFloat(pos[0]),
+			lng: parseFloat(pos[1])
+		},
+		map: map,
+		icon: image
+	});
+}
 
 function initNavigation() {
 	$('.menu-icon').click(function(event) {
 		event.preventDefault();
-		$('body').toggleClass('navigation');
-		!$('body').hasClass('display') ? bodyScrollLock.clearAllBodyScrollLocks() : bodyScrollLock.disableBodyScroll($('#nav'));
+		if ($('body').hasClass('location-body')) {
+			$('body').removeClass('location-body');
+		} else {
+			$('body').toggleClass('navigation');
+			!$('body').hasClass('display') ? bodyScrollLock.clearAllBodyScrollLocks() : bodyScrollLock.disableBodyScroll($('#nav'));
+		}
 	});
 
-	$(document).on('click', function(event) {
-		if ($(event.target).closest('.menu-icon').length || $(event.target).closest('#nav').length) return;
-		$('body').removeClass('navigation')
-		if (!$('body').hasClass('display')) bodyScrollLock.clearAllBodyScrollLocks();
-		event.stopPropagation();
+	$('.location').click(function(event) {
+		event.preventDefault();
+		$('body').toggleClass('location-body');
 	});
 }
 

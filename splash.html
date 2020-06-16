@@ -40,6 +40,7 @@
         }, false);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjiNXgsx4x2aqbbmNiU9J0Ulzrmh9WlpU" async defer></script>
     <script type="text/javascript" src="js/jquery.plugins.js" defer></script>
     <script src="js/jquery.main.js" defer></script>
 </head>
@@ -51,7 +52,7 @@
         <header id="header">
             <strong class="logo"><a data-slogan="СЕТЬ ФИТНЕС КЛУБОВ" href="#">FIT HAUS</a></strong>
             <div class="column">
-                <a href="contacts" class="location scroll-link"><svg xmlns="http://www.w3.org/2000/svg">
+                <a href="#" class="location"><svg xmlns="http://www.w3.org/2000/svg">
                         <use xlink:href="#icon-location"></use>
                     </svg>Все клубы</a>
                 <a href="#" class="menu-icon"><span></span></a>
@@ -79,6 +80,25 @@
                         </svg>0 800 601 241</a>
                 </div>
             </nav>
+            <div class="location-map">
+                <div id="map" data-pos="48.4625959,35.0530123"></div>
+                <div class="bottom">
+                    <ul class="social mobile-hidden">
+                        <li><a target="_blank" href="https://www.instagram.com/fithaus_ua/"><svg xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#icon-instagram"></use>
+                                </svg></a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/channel/UCP9MDgbLZ7QaWTcjf4cqGJg"><svg xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#icon-youtube"></use>
+                                </svg></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/fithaus.com.ua/"><svg xmlns="http://www.w3.org/2000/svg">
+                                    <use xlink:href="#icon-facebook"></use>
+                                </svg></a></li>
+                    </ul>
+                    <a class="phone mobile-hidden" href="tel:0800601241"><svg xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#icon-phone"></use>
+                        </svg>0 800 601 241</a>
+                </div>
+            </div>
         </header>
         <main id="main">
             <div class="block flex">

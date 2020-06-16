@@ -1911,7 +1911,7 @@ body.compensate-for-scrollbar {
 .slick-arrow.slick-hidden {
   display: none; }
 
-#nav > ul, .locations, .card ul, .tabs ul, .social, .slick-dots, .image-list, .addres {
+#nav > ul, .location-map > ul, .locations, .card ul, .tabs ul, .social, .slick-dots, .image-list, .addres {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -1933,7 +1933,7 @@ body.compensate-for-scrollbar {
   background-position: 50% 50%;
   background-repeat: no-repeat; }
 
-.button:before, .bg, .menu-icon:before, .play-button:before, .image-list .b-lazy {
+.button:before, .bg, .menu-icon:before, #map, .play-button:before, .image-list .b-lazy {
   position: absolute;
   top: 0;
   left: 0;
@@ -2559,14 +2559,14 @@ input[type='submit'] {
   @media (min-width: 768px) {
     .menu-icon:hover:before {
       transform: scale(1.05); } }
-  .navigation .menu-icon span {
+  .navigation .menu-icon span, .location-body .menu-icon span {
     background-color: transparent; }
-    .navigation .menu-icon span:after, .navigation .menu-icon span:before {
+    .navigation .menu-icon span:after, .navigation .menu-icon span:before, .location-body .menu-icon span:after, .location-body .menu-icon span:before {
       transition-delay: 0s, 0.3s; }
-    .navigation .menu-icon span:after {
+    .navigation .menu-icon span:after, .location-body .menu-icon span:after {
       top: 0;
       transform: rotate(45deg); }
-    .navigation .menu-icon span:before {
+    .navigation .menu-icon span:before, .location-body .menu-icon span:before {
       bottom: 0;
       transform: rotate(-45deg); }
   @media (max-width: 767px) {
@@ -2633,10 +2633,55 @@ input[type='submit'] {
     opacity: 1;
     pointer-events: auto; }
 
+.location-map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 80;
+  padding: calc(calc(100vw - var(--scroll-bar))/100 * 4);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background-color: #fafafa;
+  text-align: left;
+  overflow-y: scroll; }
+  .location-map > .bottom {
+    position: absolute;
+    left: calc(calc(100vw - var(--scroll-bar))/100 * 4);
+    right: calc(calc(100vw - var(--scroll-bar))/100 * 4);
+    bottom: calc(calc(100vw - var(--scroll-bar))/100 * 4); }
+  .location-map > ul {
+    font-weight: 600; }
+    .location-map > ul a {
+      display: block;
+      font-size: 36px;
+      line-height: 60px;
+      color: black; }
+      @media (min-width: 768px) {
+        .location-map > ul a:hover {
+          color: #ffe800; } }
+    .location-map > ul .active a {
+      color: #ffe800; }
+  .location-map .social svg {
+    fill: black; }
+  @media (min-width: 768px) {
+    .location-map .social a:hover svg {
+      fill: #ffe800; } }
+  .location-map .phone {
+    color: black; }
+    @media (min-width: 768px) {
+      .location-map .phone:hover {
+        color: #ffe800; } }
+  .location-body .location-map {
+    opacity: 1;
+    pointer-events: auto; }
+
 .b24-widget-button-position-bottom-right {
   right: calc(calc(100vw - var(--scroll-bar))/100 * 4) !important;
   bottom: calc(calc(100vw - var(--scroll-bar))/100 * 4) !important; }
-  .navigation .b24-widget-button-position-bottom-right {
+  .navigation .b24-widget-button-position-bottom-right, .location-body .b24-widget-button-position-bottom-right {
     display: none !important; }
   @media (min-width: 768px) {
     .splash-layout .b24-widget-button-position-bottom-right {

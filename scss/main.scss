@@ -214,7 +214,7 @@ $percent: $full / 100;
 		  &:before {transform: scale(1.05);}
 		}
 	 }
-	.navigation & span {
+	.navigation & span, .location-body & span {
 	  background-color: transparent;
 	  &:after, &:before {
 		 transition-delay: 0s, 0.3s;
@@ -292,6 +292,63 @@ $percent: $full / 100;
 	}
 }
 
+.location-map {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	z-index: 80;
+	padding: calc(#{$percent} * 4);
+	pointer-events: none;
+	transition: opacity $animation-speed ease;
+	background-color: #fafafa;
+	text-align: left;
+	overflow-y: scroll;
+	& > .bottom {
+		position: absolute;
+		left: calc(#{$percent} * 4);
+		right: calc(#{$percent} * 4);
+		bottom: calc(#{$percent} * 4);
+	 }
+	& > ul {
+		font-weight: 600;
+		@extend %listreset;
+		li {
+
+		}
+		a {
+			display: block;
+			font-size: 36px;
+			line-height: 60px;
+			color: black;
+			@include media('≥tablet') {
+				&:hover {color: $yellow;}
+			 }
+		}
+		.active a {color: $yellow;}
+	}
+	.social {
+		svg {fill: black;}
+		@include media('≥tablet') {
+			a:hover svg {fill: $yellow;}
+		}
+	}
+	.phone {
+		color: black;
+		@include media('≥tablet') {
+			&:hover {color: $yellow;}
+		}
+	}
+	.location-body & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+#map {@extend %fullscreen;}
+
 #main {
   @extend %clearfix;
 }
@@ -299,7 +356,7 @@ $percent: $full / 100;
 .b24-widget-button-position-bottom-right {
   right: calc(#{$percent} * 4) !important;
   bottom: calc(#{$percent} * 4) !important;
-  .navigation & {display: none !important;}
+  .navigation &, .location-body & {display: none !important;}
   @include media('≥tablet') {
 	.splash-layout & {display: none !important;}
 	.doc-layout & {bottom: calc(#{$percent} * 8) !important;}
