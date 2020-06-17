@@ -1968,7 +1968,7 @@ body {
     overflow: hidden; }
     body.scroll-hidden:not(.macOS) {
       margin-right: var(--scroll-bar); }
-  body.navigation {
+  body.navigation, body.location-body {
     overflow: hidden;
     margin-right: var(--scroll-bar); }
   @media (max-width: 1024px) {
