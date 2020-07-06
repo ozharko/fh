@@ -2435,7 +2435,7 @@ input[type='submit'] {
   top: calc(calc(100vw - var(--scroll-bar))/100 * 4);
   left: 0;
   right: 0;
-  z-index: 50; }
+  z-index: 55; }
   #header .column {
     float: right;
     width: 50%;
@@ -3564,6 +3564,8 @@ input[type='submit'] {
     margin: 0; }
   .addres a {
     color: #ccc; }
+    .addres a[data-pos] {
+      pointer-events: none; }
   @media (max-width: 767px) {
     .addres li:nth-child(n) {
       padding: 0 0 24px;
@@ -3572,7 +3574,10 @@ input[type='submit'] {
       margin: 0;
       border: 0; }
       .addres li:nth-child(n):last-child {
-        padding-bottom: 0; } }
+        padding-bottom: 0; }
+    .addres a[data-pos] {
+      pointer-events: auto;
+      border-bottom: 1px solid; } }
 
 .fancybox-slide--html {
   padding: 0; }

@@ -75,7 +75,7 @@ $percent: $full / 100;
   top: calc(#{$percent} * 4);
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 55;
   .column {
     float: right;
     width: 50%;
@@ -1293,7 +1293,10 @@ $percent: $full / 100;
     &:nth-child(2n+2) {padding-right: 0;}
   }
   p {margin: 0;}
-  a {color: $disabled;}
+  a {
+	  color: $disabled;
+	  &[data-pos] {pointer-events: none;}
+	}
   @include media('<tablet') {
     li:nth-child(n) {
       padding: 0 0 24px;
@@ -1302,7 +1305,11 @@ $percent: $full / 100;
       margin: 0;
       border: 0;
       &:last-child {padding-bottom: 0;}
-    }
+	 }
+	 a[data-pos] {
+		pointer-events: auto;
+		border-bottom: 1px solid;
+	}
   }
 }
 
