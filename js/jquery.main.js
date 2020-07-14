@@ -324,6 +324,8 @@ function initInput() {
             e.preventDefault();
         }
 	 });
+
+	 $('[type="tel"]').mask('+380 (00) 000 00 00');
 }
 
 var $popupButton;
