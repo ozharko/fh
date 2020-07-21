@@ -139,7 +139,7 @@ $percent: $full / 100;
     background-color: $yellow;
     svg {fill: black;}
   }
-  .splash-layout &, .doc-layout & {display: none;}
+  .splash-layout &, .doc-layout &, .form-layout & {display: none;}
 }
 
 .logo {
@@ -154,7 +154,7 @@ $percent: $full / 100;
     display: block;
     height: 100%;
   }
-  .splash-layout &, .doc-layout & {
+  .splash-layout &, .doc-layout &, .form-layout & {
 	background-image: url(../images/logo_mobile.svg);
   }
   @include media('<tablet') {
@@ -163,7 +163,8 @@ $percent: $full / 100;
     margin: 0 auto;
     width: 150px;
     height: 32px;
-    background-image: url(../images/logo_mobile.svg);
+	 background-image: url(../images/logo_mobile.svg);
+	 .form-layout & {background-image: url(../images/logo_mobile2.svg);}
   }
 }
 
@@ -359,8 +360,9 @@ $percent: $full / 100;
   .navigation &, .location-body & {display: none !important;}
   @include media('≥tablet') {
 	.splash-layout & {display: none !important;}
-	.doc-layout & {bottom: calc(#{$percent} * 8) !important;}
+	.doc-layout &, .form-layout & {bottom: calc(#{$percent} * 8) !important;}
   }
+  @include media('<tablet') {display: none !important;}
 }
 
 .block {
@@ -414,7 +416,7 @@ $percent: $full / 100;
 	  padding-right: calc(#{$percent} * 25);
   }
   @include media('≥tablet') {
-	.splash-layout & {
+	.splash-layout &, .form-layout & {
 		width: 100%;
 		height: 100vh;
 		.middle {width: 100%;}
@@ -1508,4 +1510,150 @@ $percent: $full / 100;
 			}
 		}
 	}
+}
+
+.inline-form {
+	margin: 0 auto;
+	width: calc(#{$percent} * 37.5);
+	position: relative;
+	h3, .h3 {
+		border: 0;
+		margin: -6px 0 39px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 18px;
+		padding: 0;
+		letter-spacing: -.025em;
+	 }
+	 footer {
+		padding-top: 22px;
+		text-align: center;
+		a {
+			display: inline-block;
+			vertical-align: top;
+		}
+		img {display: block;}
+		.button:first-child {margin-top: 0;}
+	 }
+	 .content {
+		padding: calc(#{$percent} * 6.25);
+		background-color: white;
+		position: relative;
+		z-index: 10;
+		transition: $animation-speed ease;
+		transition-property: opacity, transform;
+	 }
+	 .absolute {
+		 z-index: 20;
+		 @extend %fullscreen;
+		 padding: calc(#{$percent} * 6.25);
+		 footer {
+			 padding: 0;
+			 position: absolute;
+			 left: calc(#{$percent} * 6.25);
+			 right: calc(#{$percent} * 6.25);
+			 bottom: calc(#{$percent} * 6.25);
+		 }
+		 &.bot {
+			 background-color: white;
+			 opacity: 0;
+			 pointer-events: none;
+			 transition: opacity $animation-speed ease;
+		}
+		 &.message {
+			 z-index: 5;
+			 color: white;
+			 color: white(.5);
+			 h3 {color: white;}
+			 &:before {
+				 content: '';
+				 @extend %fullscreen;
+				 border: 1px dashed white(.3);
+				 pointer-events: none;
+			 }
+			 .icon {
+				 svg {
+					 &:first-child {fill: white;}
+				 }
+			 }
+		 }
+	 }
+	 .msg {
+		position: absolute;
+		left: calc(#{$percent} * 6.25);
+		right: calc(#{$percent} * 6.25);
+		top: 50%;
+		color: $gray;
+		font-size: 14px;
+		line-height: 24px;
+		text-align: center;
+		transform: translateY(-50%);
+		h3 {
+			color: black;
+			margin-bottom: 12px;
+		}
+		p {margin: 0;}
+	}
+	 .icon {
+		 display: block;
+		 width: 48px;
+		 height: 48px;
+		 margin: 0 auto;
+		 position: relative;
+		 svg {
+			 &:first-child {
+				 display: block;
+				 width: 100%;
+				 height: 100%;
+				 fill: black;
+			 }
+			 &:nth-child(2) {
+				 position: absolute;
+				 right: 0;
+				 bottom: 3px;
+				 width: 18px;
+				 height: 18px;
+				 fill: $yellow;
+			 }
+		 }
+	 }
+	 &.check {
+		 .bot {
+			 opacity: 1;
+			 pointer-events: auto;
+		 }
+	 }
+	 &.sent {
+		.content {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateY(-48px);
+		}
+	 }
+	 @include media('<tablet') {
+		 width: auto;
+		 margin: 0 -24px;
+		 h3, .h3 {margin-bottom: 24px;}
+		 .content {
+			 padding: 0 24px 48px;
+		 }
+		 .absolute {
+			 padding: 0 24px 48px;
+			 &.message {
+				 h3 {color: black;}
+				&:before {display: none;}
+				.icon {
+					svg {
+						&:first-child {fill: black;}
+					}
+				}
+			 }
+			 footer {
+				left: 24px;
+				right: 24px;
+				bottom: 48px;
+			}
+		 }
+		 .msg {padding-bottom: 48px;}
+	 }
 }

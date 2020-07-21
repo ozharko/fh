@@ -35,6 +35,10 @@ body {
   @include media('<tablet') {
 	 min-width: 320px;
 	 margin: 0 !important;
+	 &.form-layout {
+		 background-color: white;
+		 #wrapper_player {display: none !important;}
+	}
   }
 }
 

@@ -45,8 +45,9 @@
     <script src="js/jquery.main.js" defer></script>
 </head>
 
-<body class="doc-layout">
+<body class="form-layout">
     <div id="svg-icon-placeholder" style="display: none;"></div>
+    <div id="player" class="player mobile-hidden" data-property="{videoURL:'http://youtu.be/L9wWEFM4GN4', quality:'hd720', useOnMobile:true, stopMovieOnBlur:false, showControls:false, containment:'body', autoPlay:true, mute:true, startAt:0, opacity:.5, loop:true}">My video</div>
     <div id="wrapper">
         <header id="header">
             <strong class="logo"><a data-slogan="СЕТЬ ФИТНЕС КЛУБОВ" href="#">FIT HAUS</a></strong>
@@ -101,85 +102,58 @@
             </div>
         </header>
         <main id="main">
-            <div class="block">
-                <div class="doc">
-                    <a target="_blank" href="doc/legal_entity_questionnaire_statement.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Юридична особа. Анкета-заява до Договору про надання фізкультурно- спортивних послуг</strong>
-                        <span>legal_entity_questionnaire_statement.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Фізична особа. Анкета-заява до Договору про надання фізкультурно-спортивних послуг</strong>
-                        <span>individual_questionnaire_statement.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/children_questionnaire_statement.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Діти. Анкета-заява до Договору про надання фізкультурно-спортивних послуг</strong>
-                        <span>children_questionnaire_statement.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/third_person_questionnaire_statement.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Третя особа. Анкета-заява до Договору про надання фізкультурно-спортивних послуг</strong>
-                        <span>third_person_questionnaire_statement.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/legal_entity_contract.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Юридична особа. Договір про надання фізкультурно-спортивних послуг</strong>
-                        <span>legal_entity_contract.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/individual_contract.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Фізична особа. Договір про надання фізкультурно-спортивних послуг</strong>
-                        <span>individual_contract.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/change_category_type.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Зміна категорії і типу. Додаткова угода до Договору про надання фізкультурно-спортивних послуг, укладеного на підставі Анкети-заяви від «17» березня 2020 р.</strong>
-                        <span>change_category_type.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/reissuance.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Переоформлення. Додаткова угода до Договору про надання фізкультурно-спортивних послуг, укладеного на підставі Анкети-заяви від «17» березня 2020 р.</strong>
-                        <span>reissuance.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/installments.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Розстрочка. Додаткова угода до Договору про надання фізкультурно-спортивних послуг, укладеного на підставі Анкети-заяви від «17» березня 2020 р.</strong>
-                        <span>installments.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/club_rules.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Клубні правила</strong>
-                        <span>club_rules.pdf</span>
-                    </a>
-                    <a target="_blank" href="doc/rules_childrens_club.pdf" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#icon-doc"></use>
-                        </svg>
-                        <strong>Правила дитячого клубу</strong>
-                        <span>rules_childrens_club.pdf</span>
-                    </a>
+            <div class="block flex">
+                <div class="middle">
+                    <form data-option="complaint" action="_inc/test.php" method="post" class="inline-form">
+                        <div class="content">
+                            <h3>Оставить жалобу</h3>
+                            <div class="input">
+                                <input name="name" type="text" required>
+                                <label class="input-label">Имя</label>
+                            </div>
+                            <div class="input">
+                                <input name="phone" type="tel" required>
+                                <label class="input-label">Телефон</label>
+                            </div>
+                            <div class="input">
+                                <textarea name="message" id="" cols="30" rows="1" required></textarea>
+                                <label class="input-label">Сообщение</label>
+                            </div>
+                            <footer>
+                                <a href="#" class="button"><span>Отправить</span></a>
+                            </footer>
+                            <div class="bot absolute">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg">
+                                        <use xlink:href="#icon-bot"></use>
+                                    </svg>
+                                </div>
+                                <div class="msg">
+                                    <h3>Ты робот? ;)</h3>
+                                    <p>Чтобы отправить письмо,<br>докажите, что вы человек, пожалуйста.</p>
+                                </div>
+                                <footer>
+                                    <a href="#"><img src="images/captcha.svg" width="120" alt=""></a>
+                                </footer>
+                            </div>
+                        </div>
+                        <div class="message absolute">
+                            <div class="middel">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg">
+                                        <use xlink:href="#icon-email"></use>
+                                    </svg>
+                                </div>
+                                <div class="msg">
+                                    <h3>Спасибо за ваш интерес<br>к нашей компании</h3>
+                                    <p>Заявка принята. В ближайшее время<br>с Вами свяжется наш менеджер.</p>
+                                </div>
+                                <footer>
+                                    <a href="#" class="button yellow"><span>Ok</span></a>
+                                </footer>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="bottom">
                     <ul class="social mobile-hidden">

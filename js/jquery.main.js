@@ -24,8 +24,24 @@ var options = {
     success: function(data) {
 		  $('.tab.display .input').addClass('error');
 		  
-    }
-},
+	 }
+	},
+	complaint = {
+		clearForm: true,
+		resetForm: true,
+		beforeSubmit: function(formData, jqForm, options) {
+			$('.submit', jqForm).addClass('loading');
+		},
+		success: function(responseText, statusText, xhr, $form) {
+			$('.submit', $form).removeClass('loading');
+			$form.removeClass('check').addClass('sent');
+			if ($(window).width() < 700) bodyScrollLock.disableBodyScroll(targetElement);
+			setTimeout(function() {
+				initResetForm($form);
+				$form.addClass('back');
+			}, 300);
+		}
+	}
 mail = {
 	clearForm: true,
 	resetForm: true,
@@ -50,7 +66,10 @@ jQuery(document).ready(function($) {
     initGallery();
 	 initBgImage();
 	 initSendForm();
+	 initAfterSent();
+	 initResetForm();
 	 initNavigation();
+	 initValidation();
 
     var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
 	 if (mac) $('body').addClass('macOS');
@@ -66,6 +85,35 @@ jQuery(document).ready(function($) {
 
 	initMap();
 });
+
+function initAfterSent() {
+	$(document).on('click', '.bot a', function(event) {
+		event.preventDefault();
+		$(this).closest('form').submit();
+	});
+
+	$(document).on('click', '.content .button', function(event) {
+		event.preventDefault();
+		var $this = $(this);
+		if (validateRecordForm()) {
+			$this.closest('form').addClass('check');
+		}
+	});
+
+	$(document).on('click', '.message .button', function(event) {
+		event.preventDefault();
+		$(this).closest('form').removeClass('sent back');
+		if ($(window).width() < 768) bodyScrollLock.clearAllBodyScrollLocks();
+	});
+}
+
+function validateRecordForm() {
+	return validateForm($(".inline-form")).form();
+}
+
+function initResetForm(form) {
+	$('.input', form).removeClass('enter success');
+}
 
 function initMap() {
 	var pos;
@@ -326,6 +374,7 @@ function initInput() {
 	 });
 
 	 $('[type="tel"]').mask('+380 (00) 000 00 00');
+	 autosize($('textarea'));
 }
 
 var $popupButton;
@@ -384,8 +433,15 @@ function initValidation() {
 						$(form).ajaxSubmit(_options);
                 	return false;
 					} else {
-						form.submit();
-						$.fancybox.close();
+						form.submit(function (event) { 
+							event.preventDefault();
+							gtag('event', 'lermontova-vzroslyj-fit-start-6000-kupit-abonement-dalee', {
+								'event_callback': function() {
+								  form.submit();
+								  $.fancybox.close();
+								}
+							});
+						});
 					}
             }
         });

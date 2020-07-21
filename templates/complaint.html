@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!-- build:section layout.head -->
+<!-- /build -->
+<body class="form-layout">
+	<div id="svg-icon-placeholder" style="display: none;"></div>
+	<div id="player" class="player mobile-hidden" data-property="{videoURL:'http://youtu.be/L9wWEFM4GN4', quality:'hd720', useOnMobile:true, stopMovieOnBlur:false, showControls:false, containment:'body', autoPlay:true, mute:true, startAt:0, opacity:.5, loop:true}">My video</div>
+	<div id="wrapper">
+		<!-- build:section layout.header -->
+		<!-- /build -->
+		<main id="main">
+			<div class="block flex">
+				<div class="middle">
+					<form data-option="complaint" action="_inc/test.php" method="post" class="inline-form">
+						<div class="content">
+							<h3>Оставить жалобу</h3>
+							<div class="input">
+								<input name="name" type="text" required>
+								<label class="input-label">Имя</label>
+							</div>
+							<div class="input">
+								<input name="phone" type="tel" required>
+								<label class="input-label">Телефон</label>
+							</div>
+							<div class="input">
+								<textarea name="message" id="" cols="30" rows="1" required></textarea>
+								<label class="input-label">Сообщение</label>
+							</div>
+							<footer>
+								<a href="#" class="button"><span>Отправить</span></a>
+							</footer>
+							<div class="bot absolute">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-bot"></use></svg>
+								</div>
+								<div class="msg">
+									<h3>Ты робот? ;)</h3>
+									<p>Чтобы отправить письмо,<br>докажите, что вы человек, пожалуйста.</p>
+								</div>
+								<footer>
+									<a href="#"><img src="images/captcha.svg" width="120" alt=""></a>
+								</footer>
+							</div>
+						</div>
+						<div class="message absolute">
+							<div class="middel">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-email"></use></svg>
+								</div>
+								<div class="msg">
+									<h3>Спасибо за ваш интерес<br>к нашей компании</h3>
+									<p>Заявка принята. В ближайшее время<br>с Вами свяжется наш менеджер.</p>
+								</div>
+								<footer>
+									<a href="#" class="button yellow"><span>Ok</span></a>
+								</footer>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="bottom">
+					<ul class="social mobile-hidden">
+						 <li><a target="_blank" href="https://www.instagram.com/fithaus_ua/"><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-instagram"></use></svg></a></li>
+						 <li><a target="_blank" href="https://www.youtube.com/channel/UCP9MDgbLZ7QaWTcjf4cqGJg"><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-youtube"></use></svg></a></li>
+						 <li><a target="_blank" href="https://www.facebook.com/fithaus.com.ua/"><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-facebook"></use></svg></a></li>
+					</ul>
+					<a class="phone" href="tel:0800601241"><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#icon-phone"></use></svg>0 800 601 241</a>
+			  </div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

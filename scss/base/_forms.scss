@@ -65,8 +65,8 @@ textarea {
   resize: none;
   line-height: 24px;
   vertical-align: top;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   &.default {
       min-height: 70px;
       overflow-y: auto;
@@ -205,6 +205,10 @@ input[type='submit'] {
   &.gray {
     color: #727272;
     &:before {background-color: #E5E5E5;}
+  }
+  &.white {
+	color: black;
+	&:before {background-color: white;}
   }
   @include media('≥tablet') {
     &:hover {
