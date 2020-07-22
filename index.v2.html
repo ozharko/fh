@@ -39,6 +39,18 @@
             document.getElementById('svg-icon-placeholder').innerHTML += SVG_SPRITES['sprite'];
         }, false);
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148890077-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-148890077-2');
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjiNXgsx4x2aqbbmNiU9J0Ulzrmh9WlpU" async defer></script>
     <script type="text/javascript" src="js/jquery.plugins.js" defer></script>
@@ -303,7 +315,7 @@
                                 </div>
                             </form>
                             <footer>
-                                <form class="ignore" data-default method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8" target="_blank">
+                                <form class="ignore" data-default data-ga="lermontova-vzroslyj-fit-start-6000-kupit-abonement-dalee" method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8" target="_blank">
                                     <input type="hidden" name="_token" value="jGnPjThDCfwF0mgiJsFkpwgumIvNvPSYzYSeqWJR">
                                     <input type="hidden" name="data" value="eyJwdWJsaWNfa2V5IjoiaTE2NDUwNDg0NjA5IiwidmVyc2lvbiI6IjMiLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiI0NTAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6IkZpdCBTdGFydC4gXHUwNDIzXHUwNDNiLiBcdTA0MWJcdTA0MzVcdTA0NDBcdTA0M2NcdTA0M2VcdTA0M2RcdTA0NDJcdTA0M2VcdTA0MzJcdTA0MzAgOS1cdTA0MzAuIFx1MDQyNlx1MDQzNVx1MDQzZFx1MDQzMCA0NTAwIFx1MDQzM1x1MDQ0MFx1MDQzZC4gSUQgXHUwNDNmXHUwNDNlXHUwNDNhXHUwNDQzXHUwNDNmXHUwNDNhXHUwNDM4IEM2U1dQTElMUEQiLCJvcmRlcl9pZCI6IkM2U1dQTElMUEQiLCJyZXN1bHRfdXJsIjoiaHR0cDpcL1wvcmVhY3Rvci5maXRoYXVzLmNvbS51YVwvdGhhbmtzIiwic2VydmVyX3VybCI6Imh0dHA6XC9cL3JlYWN0b3IuZml0aGF1cy5jb20udWFcL2FjdGl2YXRlX29yZGVyIn0=">
                                     <input type="hidden" name="signature" value="vNdeKWKpoX7zHIlihvXrj8p8Ml0=">

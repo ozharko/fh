@@ -49,6 +49,9 @@ mail = {
 		$(".modal .button").prop("disabled", true).addClass("loading");
 	},
 	success: function (response, statusText, xhr, $form) {
+		var info = $form.parent().find('[data-default]').data('ga');
+		console.log(info);
+		gtag('event', info);
 		$.fancybox.close();
 		initInput();
 	},
@@ -433,15 +436,8 @@ function initValidation() {
 						$(form).ajaxSubmit(_options);
                 	return false;
 					} else {
-						form.submit(function (event) { 
-							event.preventDefault();
-							gtag('event', 'lermontova-vzroslyj-fit-start-6000-kupit-abonement-dalee', {
-								'event_callback': function() {
-								  form.submit();
-								  $.fancybox.close();
-								}
-							});
-						});
+						form.submit();
+						$.fancybox.close();
 					}
             }
         });
