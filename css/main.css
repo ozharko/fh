@@ -3863,6 +3863,9 @@ input[type='submit'] {
       width: 18px;
       height: 18px;
       fill: #ffe800; }
+  .inline-form .captcha {
+    display: inline-block;
+    vertical-align: top; }
   .inline-form.check .bot {
     opacity: 1;
     pointer-events: auto; }

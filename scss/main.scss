@@ -1617,6 +1617,10 @@ $percent: $full / 100;
 			 }
 		 }
 	 }
+	 .captcha {
+		 display: inline-block;
+		 vertical-align: top;
+	 }
 	 &.check {
 		 .bot {
 			 opacity: 1;

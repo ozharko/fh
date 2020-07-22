@@ -60,6 +60,10 @@ mail = {
 	}
 };
 
+function recaptcha_callback() {
+	$('.inline-form').submit();
+ }
+
 jQuery(document).ready(function($) {
 	initDot();
     initTabs();
@@ -90,10 +94,10 @@ jQuery(document).ready(function($) {
 });
 
 function initAfterSent() {
-	$(document).on('click', '.bot a', function(event) {
-		event.preventDefault();
-		$(this).closest('form').submit();
-	});
+	// $(document).on('click', '.bot a', function(event) {
+	// 	event.preventDefault();
+	// 	$(this).closest('form').submit();
+	// });
 
 	$(document).on('click', '.content .button', function(event) {
 		event.preventDefault();
