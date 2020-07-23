@@ -49,8 +49,7 @@ mail = {
 		$(".modal .button").prop("disabled", true).addClass("loading");
 	},
 	success: function (response, statusText, xhr, $form) {
-		var info = $form.parent().find('[data-default]').data('ga');
-		console.log(info);
+		var info = $popupButton.data('gtag');
 		gtag('event', info);
 		$.fancybox.close();
 		initInput();
