@@ -22,7 +22,7 @@
     "grunt-svgmin": "6.0.0",
     "grunt-svgstore": "2.0.0",
     "load-grunt-tasks": "5.1.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.1"
   },
   "dependencies": {
     "browserslist": "^4.7.2",
